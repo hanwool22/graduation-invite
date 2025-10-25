@@ -1,26 +1,31 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Thiệp mời tốt nghiệp</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thiệp mời tốt nghiệp</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color:#fff5e6;">
+<body style="background-color:#fff0e0;">
 <div id="app">
+
+  <!-- Logo góc nhỏ -->
   <div id="logoSmall" class="logo-small" title="Logo trường">
     <img src="assets/school_logo.png" alt="logo">
   </div>
 
+  <!-- Phong thư -->
   <div class="center-wrap">
     <div id="envelopeWrap" class="envelope-wrap" aria-label="Nhấn để mở phong thư">
-      <div id="envelope" class="envelope" style="background-image:url('assets/phong-thu.png')"></div>
+      <div id="envelope" class="envelope" style="background-image:url('assets/phongthu.png')"></div>
       <div id="seal" class="seal" aria-hidden="true"></div>
       <div id="openHint" class="open-hint">💌 Nhấn để mở</div>
     </div>
   </div>
 
+  <!-- Nội dung chính -->
   <main id="mainContent" class="hidden fade-section">
+
     <section id="intro" class="panel fade-section">
       <h1>Ánh sáng trưởng thành</h1>
       <div class="intro-row">
@@ -50,4 +55,27 @@
         </div>
       </div>
       <div id="inviteText" class="invite-text"></div>
-      <audio id="bgAudio" src="asse
+      <audio id="bgAudio" src="assets/walking_home.mp3" preload="auto" loop></audio>
+    </section>
+
+    <section id="map" class="panel fade-section">
+      <h1>Bản đồ</h1>
+      <div class="map-wrap"><img src="assets/school_map.png" alt="map"></div>
+      <div class="address">Trường Đại học Y tế Công cộng, số 1A đường Đức Thắng, phường Đông Ngạc, Thành phố Hà Nội.</div>
+    </section>
+
+    <section id="thanks" class="panel fade-section">
+      <h1>Lời cảm ơn</h1>
+      <p>“Cảm ơn anh đã đến và đồng hành với ngày ‘trưởng thành’ của em.” 🌼</p>
+      <p class="small">Hẹn gặp anh ở ngày em trưởng thành nhé.</p>
+    </section>
+  </main>
+
+  <!-- Cánh hoa rơi -->
+  <div id="petals" aria-hidden="true"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
