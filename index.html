@@ -2,80 +2,101 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thiệp mời tốt nghiệp</title>
+
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #fff5e6;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+  </style>
 </head>
-<body style="background-color:#fff0e0;">
-<div id="app">
 
-  <!-- Logo góc nhỏ -->
-  <div id="logoSmall" class="logo-small" title="Logo trường">
-    <img src="assets/school_logo.png" alt="logo">
-  </div>
+<body>
+  <div id="app">
 
-  <!-- Phong thư -->
-  <div class="center-wrap">
-    <div id="envelopeWrap" class="envelope-wrap" aria-label="Nhấn để mở phong thư">
-      <div id="envelope" class="envelope" style="background-image:url('assets/phongthu.png')"></div>
-      <div id="seal" class="seal" aria-hidden="true"></div>
-      <div id="openHint" class="open-hint">💌 Nhấn để mở</div>
+    <!-- Logo nhỏ trên góc -->
+    <div id="logoSmall" class="logo-small" style="display:none;">
+      <img src="assets/school_logo.png" alt="logo" width="80">
     </div>
+
+    <!-- Phong thư mở đầu -->
+    <div class="center-wrap">
+      <div id="envelopeWrap" class="envelope-wrap" aria-label="Nhấn để mở phong thư">
+        <div id="envelope" class="envelope" style="background-image:url('assets/phongthu.png')"></div>
+        <div id="seal" class="seal" aria-hidden="true"></div>
+        <div id="openHint" class="open-hint">💌 Nhấn để mở</div>
+      </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <main id="mainContent" class="hidden fade-section">
+
+      <!-- Giới thiệu -->
+      <section id="intro" class="panel fade-section">
+        <h1>Ánh sáng trưởng thành</h1>
+        <div class="intro-row">
+          <div class="logo-big">
+            <img src="assets/school_logo.png" alt="logo" width="120">
+          </div>
+          <p class="lead" id="introText">
+            Một hành trình khép lại – một cánh cửa mới mở ra.
+          </p>
+        </div>
+      </section>
+
+      <!-- Lời mời -->
+      <section id="invite" class="panel fade-section">
+        <h1>Có anh ở đó sẽ vui hơn nhiều</h1>
+
+        <div class="invite-top">
+          <div id="guestPreview" class="guest-preview"></div>
+
+          <div class="invite-controls">
+            <div class="form-row">
+              <label for="qname">Tên người nhận</label>
+              <input id="qname" type="text" placeholder="Nhập tên..." />
+            </div>
+
+            <div class="form-row">
+              <label for="qphoto">Ảnh khách (tùy chọn)</label>
+              <input id="qphoto" type="file" accept="image/*" />
+            </div>
+
+            <div class="form-row">
+              <button id="createLink">Tạo link mời</button>
+              <button id="previewGuest">Xem bản gửi</button>
+            </div>
+
+            <small class="note">
+              Sau khi tạo link, bạn sẽ nhận đường link data-URL để gửi hoặc tạo mã QR.
+            </small>
+          </div>
+        </div>
+
+        <div id="inviteText" class="invite-text"></div>
+      </section>
+
+      <!-- Bản đồ trường -->
+      <section id="map" class="panel fade-section">
+        <h2>Địa điểm</h2>
+        <img src="assets/school_map.png" alt="Bản đồ trường" class="map-img">
+      </section>
+
+    </main>
+
+    <!-- Âm nhạc nền -->
+    <audio id="bgAudio" src="assets/walking_home.mp3" loop></audio>
+
+    <!-- Cánh hoa rơi -->
+    <div id="petals"></div>
+
   </div>
 
-  <!-- Nội dung chính -->
-  <main id="mainContent" class="hidden fade-section">
-
-    <section id="intro" class="panel fade-section">
-      <h1>Ánh sáng trưởng thành</h1>
-      <div class="intro-row">
-        <div class="logo-big"><img src="assets/school_logo.png" alt="logo"></div>
-        <p class="lead" id="introText">Một hành trình khép lại – một cánh cửa mới mở ra.</p>
-      </div>
-    </section>
-
-    <section id="invite" class="panel fade-section">
-      <h1>Có anh ở đó sẽ vui hơn nhiều</h1>
-      <div class="invite-top">
-        <div id="guestPreview" class="guest-preview"></div>
-        <div class="invite-controls">
-          <div class="form-row">
-            <label for="qname">Tên người nhận</label>
-            <input id="qname" type="text" placeholder="Nhập tên..." />
-          </div>
-          <div class="form-row">
-            <label for="qphoto">Ảnh khách (tùy chọn)</label>
-            <input id="qphoto" type="file" accept="image/*" />
-          </div>
-          <div class="form-row">
-            <button id="createLink">Tạo link mời</button>
-            <button id="previewGuest">Xem bản gửi</button>
-          </div>
-          <small class="note">Sau khi tạo link, bạn sẽ nhận đường link data-URL để gửi hoặc tạo QR.</small>
-        </div>
-      </div>
-      <div id="inviteText" class="invite-text"></div>
-      <audio id="bgAudio" src="assets/walking_home.mp3" preload="auto" loop></audio>
-    </section>
-
-    <section id="map" class="panel fade-section">
-      <h1>Bản đồ</h1>
-      <div class="map-wrap"><img src="assets/school_map.png" alt="map"></div>
-      <div class="address">Trường Đại học Y tế Công cộng, số 1A đường Đức Thắng, phường Đông Ngạc, Thành phố Hà Nội.</div>
-    </section>
-
-    <section id="thanks" class="panel fade-section">
-      <h1>Lời cảm ơn</h1>
-      <p>“Cảm ơn anh đã đến và đồng hành với ngày ‘trưởng thành’ của em.” 🌼</p>
-      <p class="small">Hẹn gặp anh ở ngày em trưởng thành nhé.</p>
-    </section>
-  </main>
-
-  <!-- Cánh hoa rơi -->
-  <div id="petals" aria-hidden="true"></div>
-
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
