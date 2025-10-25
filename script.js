@@ -38,12 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------------- PETAL FALL ---------------- */
   function startPetals() {
     const numPetals = 15;
-    for (let i = 0; i < numPetals; i++) {
-      createPetal();
-    }
-    setInterval(() => {
-      createPetal();
-    }, 800);
+    for (let i = 0; i < numPetals; i++) createPetal();
+    setInterval(createPetal, 800);
   }
 
   function createPetal() {
@@ -79,22 +75,4 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateInviteText(name = "anh", hasPhoto = false, photoURL = "") {
     let content = `
       <p>Anh <strong>${name}</strong> thân mến,</p>
-      <p>Vào sáng <mark>thứ Sáu, ngày 31/10/2025</mark>, em sẽ chính thức tốt nghiệp <mark>Cử nhân Xét nghiệm Y học</mark> tại <mark>Trường Đại học Y tế Công cộng</mark>.</p>
-      <p>Sau buổi lễ, lúc <mark>11h–12h</mark>, em sẽ đợi anh ở vườn trước cửa Nhà C hoặc ở sân bóng gần đó.</p>
-      <p>Có anh ở đó sẽ vui hơn nhiều 🤍</p>
-    `;
-    if (hasPhoto && photoURL) {
-      guestPreview.style.backgroundImage = `url(${photoURL})`;
-    } else {
-      guestPreview.style.backgroundImage = "none";
-    }
-    inviteText.innerHTML = content;
-  }
-
-  updateInviteText(); // default preview
-
-  /* ---------------- PHOTO UPLOAD ---------------- */
-  photoInput?.addEventListener("change", e => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader =
+      <p>Vào sáng <mark>thứ Sáu, ngày 31/10/2025</mark>, em sẽ chính thức tốt nghiệp <mark>
